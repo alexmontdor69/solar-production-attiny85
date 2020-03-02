@@ -11,11 +11,12 @@ int sclPin = 7;
 // set pins for Communication Module
 int antennaPin = 4;
 
+int testPin = 3;
 char message[] ="2 disp";
 
 void setup() {
   // init analog input
-  pinMode(0, OUTPUT);
+  pinMode(testPin, OUTPUT);
 
   // init screen
 

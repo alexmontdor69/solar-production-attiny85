@@ -4,8 +4,9 @@ AVRDUDEMCU=t85
 CC=/usr/bin/avr-gcc
 CFLAGS=-g -Os -Wall -mcall-prologues -mmcu=$(MCU)
 OBJ2HEX=/usr/bin/avr-objcopy
-AVRDUDE=/usr/local/bin/avrdude
-TARGET=solar-production
+AVRDUDE=/opt/avrdude/bin/avrdude
+AVRDUDECONF=/opt/avrdude/etc/avrdude.conf
+TARGET=solar-production.cpp
 # target = name of your file you want upload on the attiny
 
 all : 
@@ -15,16 +16,10 @@ all :
     #rm -f $(TARGET)
 
 install : all
-    sudo gpio -g mode 26 out
-    sudo gpio -g write 26 0
-    sudo $(AVRDUDE) -p $(AVRDUDEMCU) -P /dev/spidev0.0 -c linuxspi -b 9600 - U flash:w:$(TARGET).hex
-    sudo gpio -g write 26 1
+
+    sudo $(AVRDUDE) -p $(AVRDUDEMCU) -U $(AVRDUDECONF) -c linuxgpio - U flash:w:$(TARGET).hex
+
 
 noreset : all
-    sudo $(AVRDUDE) -p $(AVRDUDEMCU) -P /dev/spidev0.0 -c linuxspi -b 10000 -U flash:w:$(TARGET).hex
+    sudo $(AVRDUDE) -p $(AVRDUDEMCU) -P /dev/spidev0.0 -c linuxgpio -U flash:w:$(TARGET).hex
 
-fuse :
-    sudo gpio -g mode 26 out
-    sudo gpio -g write 26 0
-    sudo $(AVRDUDE) -p $(AVRDUDEMCU) -P /dev/spidev0.0 -c linuxspi -b 10000 -U lfuse:w:0x62:m -U hfuse:w:0xdf:m -U efuse:w:0xff:m 
-    sudo gpio -g write 26 1
