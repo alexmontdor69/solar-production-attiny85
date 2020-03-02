@@ -9,17 +9,17 @@ AVRDUDECONF=/opt/avrdude/etc/avrdude.conf
 TARGET=solar-production.cpp
 # target = name of your file you want upload on the attiny
 
-all : 
+all: 
 # no need this part if you have the .hex :D
     #$(CC) $(CFLAGS) $(TARGET).c -o $(TARGET)
     #$(OBJ2HEX) -R .eeprom -O ihex $(TARGET) $(TARGET).hex
     #rm -f $(TARGET)
 
-install : all
+install:all
 
     sudo $(AVRDUDE) -p $(AVRDUDEMCU) -U $(AVRDUDECONF) -c linuxgpio - U flash:w:$(TARGET).hex
 
 
-noreset : all
+noreset:all
     sudo $(AVRDUDE) -p $(AVRDUDEMCU) -P /dev/spidev0.0 -c linuxgpio -U flash:w:$(TARGET).hex
 
