@@ -1,4 +1,4 @@
-int blinkPin = 0;
+int blinkPin = 3;
 
 void setup()
 {
