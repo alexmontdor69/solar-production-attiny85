@@ -8,7 +8,7 @@ void setup()
 void loop()
 {
   digitalWrite(blinkPin, HIGH);
-  delay(250);
+  delay(300);
   digitalWrite(blinkPin, LOW);
   delay(50);
 }
