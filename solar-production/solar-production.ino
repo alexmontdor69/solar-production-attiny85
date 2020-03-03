@@ -3,7 +3,7 @@ Transmit value by RX/TX?
 */
 #include "SoftwareSerial.h"
 
-const int solarPin = 5;                 // this is physical pin 1
+const int solarPin = A0;                 // this is physical pin 1
 const int Rx = 3;                       // this is physical pin 2
 const int Tx = 4;                       // this is physical pin 3
 int solarPanelTension = 0;
