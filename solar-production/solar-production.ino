@@ -1,14 +1,33 @@
-int blinkPin = 3;
+/*
+Transmit value by RX/TX?
+*/
+#include "SoftwareSerial.h"
 
+const int solarPin = 5;                 // this is physical pin 1
+const int Rx = 3;                       // this is physical pin 2
+const int Tx = 4;                       // this is physical pin 3
+int solarPanelTension = 0;
+
+SoftwareSerial mySerial(Rx, Tx);
 void setup()
 {
-  pinMode(blinkPin, OUTPUT);
+  pinMode(Rx, INPUT);
+  pinMode(Tx, OUTPUT);
+  mySerial.begin(9600);                 // send serial data at 9600 bits/sec 
 }
 
 void loop()
 {
-  digitalWrite(blinkPin, HIGH);
-  delay(300);
-  digitalWrite(blinkPin, LOW);
-  delay(50);
+  solarPanelTension = getSolarValue();
+/* Transmit Value via serial port */
+  mySerial.println(solarPanelTension);
+  delay(500);
+
+}
+
+
+/* Read solar Tension*/
+int getSolarValue() {
+    int tensionValue = analogRead(solarPin);
+    return tensionValue;
 }
