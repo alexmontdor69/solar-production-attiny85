@@ -12,8 +12,8 @@ SoftwareSerial mySerial(Rx, Tx);
 void setup()
 {
   pinMode (solarPin, INPUT);
-//  pinMode(Rx, INPUT);
-//  pinMode(Tx, OUTPUT);
+  pinMode(Rx, INPUT);
+  pinMode(Tx, OUTPUT);
 
   mySerial.begin(9600);                 // send serial data at 9600 bits/sec 
   delay(100);
@@ -25,8 +25,8 @@ void loop()
 /* Transmit Value via serial port */
   if (mySerial.available())
   {
-    solarPanelTension = analogRead(solarPin);
-    mySerial.println("value"+solarPanelTension);
+    //solarPanelTension = analogRead(solarPin);
+    mySerial.println("value");
     delay(500);
   }
 
