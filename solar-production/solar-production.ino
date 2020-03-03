@@ -25,8 +25,8 @@ void loop()
 /* Transmit Value via serial port */
   if (mySerial.available())
   {
-    //solarPanelTension = analogRead(solarPin);
-    mySerial.println("value");
+    solarPanelTension = analogRead(solarPin);
+    mySerial.println(solarPanelTension);
     delay(500);
   }
 
