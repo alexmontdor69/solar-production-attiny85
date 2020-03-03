@@ -1,5 +1,21 @@
 # Check solar production with an ATTINY85
 
+## Installment
+### Compililation
+A .hex file is require and is obtained with the use or ArduinoIDE
+
+### flash the ATTiny85
+
+AVRDUDE is required to flas the ATTiny 85 with a raspberry pi (zero W version ??)
+
+commandline to install AVRDUDE
+
+The AVR conf file is included in this repo
+/conf
+
+To flash
+On linux ./solar-install.sh
+
 
 ### Documentation about the ATTINY85
 
