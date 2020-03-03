@@ -11,5 +11,5 @@ TARGET="solar-production.cpp"
 
 
 set -x; 
-sudo $AVRDUDE -p $AVRDUDEMCU -C $AVRDUDECONF -c linuxgpio - U flash:w:$TARGET.hex
+sudo $AVRDUDE -p $AVRDUDEMCU -C $AVRDUDECONF -c linuxgpio -U flash:w:$TARGET.hex
 + set +x
