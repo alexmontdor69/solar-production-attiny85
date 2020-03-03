@@ -18,7 +18,7 @@ ser = serial.Serial(
 print "Serial Connection initialized"
 
 while 1:
-    tensionValue=ser.readline()
+    tensionValue=1
     print tensionValue+' V',
     time.sleep(1)
     
