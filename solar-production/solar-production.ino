@@ -21,15 +21,17 @@ void setup()
 
 void loop()
 {
-
+mySerial.println("solarPanelTension");
   /* Transmit Value via serial port */
   if (mySerial.available())
   {
+    
     solarPanelTension = String(analogRead(solarPin), DEC); 
-    mySerial.print("AT+CIPSEND=9999\r\n");
-    delay(1000);
-    mySerial.print(solarPanelTension+"\r\n");
-    delay(1000);
+
+    //mySerial.print("AT+CIPSEND=9999\r\n");
+//    delay(1000);
+    //mySerial.print(solarPanelTension+"\r\n");
+//    delay(1000);
     mySerial.println(solarPanelTension);
     delay(1000);
   }
