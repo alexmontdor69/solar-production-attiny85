@@ -19,11 +19,11 @@ print "Serial Connection initialized"
 
 while 1:
     #tensionValue=ser.readline()
-    tensionValue = ser.read_until('\n')
+    tensionValue = ser.read_until('\r\n')
     print tensionValue
-    convertedTension = int(tensionValue)
+#    convertedTension = int(tensionValue)
 #    convertedTension = convertedTension*3.1/1023
-    print str(convertedTension) +"V"
+#    print str(convertedTension) +"V"
     time.sleep(.5)
 
     
