@@ -5,6 +5,7 @@
 
 import time
 import serial
+import re    
 
 ser = serial.Serial(
         port='/dev/ttyS0', # ttyS0 for Pi3 and 0W - ttyAMA0 for other
@@ -17,9 +18,13 @@ ser = serial.Serial(
 
 print "Serial Connection initialized"
 
+def is_number_repl_isdigit(s):
+    """ Returns True is string is a number. """
+    return s.replace('.','',1).isdigit()
+
 while 1:
     tensionValue=ser.readline()
-    if tensionValue.isdecimal()
+    if is_number_repl_isdigit(tensionValue):
         convertedTension = int(tensionValue)
         convertedTension = convertedTension*3.1/1023
         print str(convertedTension) +"V"
