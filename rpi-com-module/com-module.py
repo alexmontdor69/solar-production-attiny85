@@ -19,7 +19,7 @@ print "Serial Connection initialized"
 
 while 1:
     tensionValue=ser.readline()
-    if tensionValue.isdecimal()
+    if tensionValue.isdecimal()==True
         convertedTension = int(tensionValue)
         convertedTension = convertedTension*3.1/1023
         print str(convertedTension) +"V"
