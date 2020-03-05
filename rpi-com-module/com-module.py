@@ -24,6 +24,7 @@ def is_number_repl_isdigit(s):
 
 while 1:
     tensionValue=ser.readline()
+    
     if is_number_repl_isdigit(tensionValue):
         convertedTension = int(tensionValue)
         convertedTension = convertedTension*3.1/1023
