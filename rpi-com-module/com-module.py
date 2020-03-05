@@ -19,11 +19,11 @@ print "Serial Connection initialized"
 
 while 1:
     tensionValue=ser.readline()
-    if solarPanelTension
+    if tensionValue.isdecimal()
+        convertedTension = int(tensionValue)
+        convertedTension = convertedTension*3.1/1023
+        print str(convertedTension) +"V"
+        else
+        print tensionValue
 
-    #tensionValue = ser.read_until('\r\n')
-    print tensionValue
-#    convertedTension = int(tensionValue)
-#    convertedTension = convertedTension*3.1/1023
-#    print str(convertedTension) +"V"
     time.sleep(.5)
