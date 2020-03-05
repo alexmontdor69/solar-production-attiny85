@@ -18,12 +18,12 @@ ser = serial.Serial(
 print "Serial Connection initialized"
 
 while 1:
-    #tensionValue=ser.readline()
-    tensionValue = ser.read_until('\r\n')
+    tensionValue=ser.readline()
+    if solarPanelTension
+
+    #tensionValue = ser.read_until('\r\n')
     print tensionValue
 #    convertedTension = int(tensionValue)
 #    convertedTension = convertedTension*3.1/1023
 #    print str(convertedTension) +"V"
     time.sleep(.5)
-
-CD    
