@@ -6,7 +6,8 @@ Transmit value by RX/TX?
 const int solarPin = A1;                 // this is physical pin 1
 const int Rx = 3;                       // this is physical pin 2
 const int Tx = 4;                       // this is physical pin 3
-int solarPanelTension = 0;
+String solarPanelTension;
+
 
 SoftwareSerial mySerial(Rx, Tx);
 void setup()
@@ -14,20 +15,23 @@ void setup()
   pinMode (solarPin, INPUT);
   pinMode(Rx, INPUT);
   pinMode(Tx, OUTPUT);
-
   mySerial.begin(9600);                 // send serial data at 9600 bits/sec 
   delay(100);
 }
 
 void loop()
 {
-  
-/* Transmit Value via serial port */
+
+  /* Transmit Value via serial port */
   if (mySerial.available())
   {
-    solarPanelTension = analogRead(solarPin);
+    solarPanelTension = String(analogRead(solarPin), DEC); 
+    mySerial.print("AT+CIPSEND=9999\r\n");
+    delay(1000);
     mySerial.print(solarPanelTension+"\r\n");
-    delay(500);
+    delay(1000);
+    mySerial.println(solarPanelTension);
+    delay(1000);
   }
 
 }
