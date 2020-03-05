@@ -4,8 +4,7 @@
 # Display the tension of the solar panel
 
 import time
-import serial
-import re    
+import serial 
 
 ser = serial.Serial(
         port='/dev/ttyS0', # ttyS0 for Pi3 and 0W - ttyAMA0 for other
@@ -25,14 +24,17 @@ print "Serial Connection initialized"
 # print is_number_repl_isdigit("1123\n")
 # print is_number_repl_isdigit("1123\r\n")
 
+Vcc = 3.1
+scale = 1023
+
 while 1:
-    tensionValue=ser.readline()
+    readings=ser.readline()
     
-    if is_number_repl_isdigit(tensionValue):
-        convertedTension = int(tensionValue)
-        convertedTension = convertedTension*3.1/1023
-        print str(convertedTension) +"V"
+    if is_number_repl_isdigit(readings):
+        readVoltage = int(readings)
+        convertedVoltage = readVoltage*Vcc/scale
+        print "{:.2f}".format(str(convertedVoltage)) +" V"
     else:
-        print tensionValue
+        print readings
 
     time.sleep(.5)
