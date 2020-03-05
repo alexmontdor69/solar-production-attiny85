@@ -4,7 +4,7 @@ The voltage read by the ATTiny85 ranges between 0 and 1023 (1023 being equal to 
 
 The solar panel produce up to 5.8V. Therefore the voltage to be read need to be brought down to around 3V (under Vcc). 2 resistor will be installed and the pin A1 will be taken the measure (0 to 5.8/2 = 2.8V)
 
-see the breadboard schematics (https://github.com/alexmontdor69/solar-production-attiny85/blob/display-tension-on-screen/Breadboard/reading-solar-voltage_bb.png)
+see the breadboard schematics (https://github.com/alexmontdor69/solar-production-attiny85/blob/display-tension-on-screen/breadboards/reading-solar-voltage_bb.png)
 
 ## Communication module
 
