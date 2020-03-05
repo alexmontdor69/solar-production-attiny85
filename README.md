@@ -12,3 +12,7 @@ The would have to :
 - Transmit the data to a server
 
 The whole information should be able to be accessible from a web Browser
+
+
+## Branches
+display-tension-on-screen : I use this branch to test how I could get the voltage produce by the solar panel
