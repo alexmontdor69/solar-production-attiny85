@@ -32,8 +32,9 @@ while 1:
     
     if is_number_repl_isdigit(readings):
         readVoltage = int(readings)
-        convertedVoltage = readVoltage*Vcc/scale
-        print "{:.2f}".format(str(convertedVoltage)) +" V"
+        # Produced voltage is 2 times the voltage read due to the 2 5kOhm resitance
+        convertedVoltage = 2*readVoltage*Vcc/scale
+        print str("{:.2f}".format(convertedVoltage)) +" V"
     else:
         print readings
 
