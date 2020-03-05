@@ -15,13 +15,15 @@ void setup()
   pinMode (solarPin, INPUT);
   pinMode(Rx, INPUT);
   pinMode(Tx, OUTPUT);
+  
   mySerial.begin(9600);                 // send serial data at 9600 bits/sec 
   delay(100);
 }
 
 void loop()
 {
-mySerial.println("solarPanelTension");
+  mySerial.println("solarPanelTension");
+  
   /* Transmit Value via serial port */
   if (mySerial.available())
   {

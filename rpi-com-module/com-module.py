@@ -26,4 +26,4 @@ while 1:
 #    print str(convertedTension) +"V"
     time.sleep(.5)
 
-    
+CD    
