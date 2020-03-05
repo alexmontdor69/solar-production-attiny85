@@ -26,7 +26,7 @@ void loop()
   if (mySerial.available())
   {
     solarPanelTension = analogRead(solarPin);
-    mySerial.println(solarPanelTension);
+    mySerial.print(solarPanelTension+"\r\n");
     delay(500);
   }
 
